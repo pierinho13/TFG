@@ -22,7 +22,7 @@ public class EmpresasController {
 	
 	@RequestMapping(value = "/ajustes/empresas/{listado}.json", method = RequestMethod.GET)
 	public @ResponseBody List<Empresa> getListadoEmpresas(@PathVariable String listado) {
-		logger.debug(" getListadoEmpresas solicita todas las empresas ");
+		logger.debug("metodo getListadoEmpresas solicita todas las empresas ");
 		List<Empresa> empresas= empresaRepository.obtieneTodasLasEmpresas();
 		return empresas;
 	}
