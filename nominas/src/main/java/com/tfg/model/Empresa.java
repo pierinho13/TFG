@@ -2,11 +2,15 @@ package com.tfg.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -21,6 +25,7 @@ public class Empresa implements Serializable{
 	private Integer numeroEmpleados;
 	private String sector;
 	private Date fechaAlta;
+	private Set<Usuario> usuarios = new HashSet<Usuario>();
 
 
 	@Id
@@ -96,6 +101,14 @@ public class Empresa implements Serializable{
 
 	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
+	}
+	@OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy = "empresa")
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	private static final long serialVersionUID = -7347942979758217384L;
