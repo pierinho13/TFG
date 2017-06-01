@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan
+		base-package="com.geoplagas.providers,com.geoplagas.providers.web,com.geoplagas.providers.web.controllers" />
+	
+	<mvc:annotation-driven conversion-service="geoplagasConversionService">
+		<mvc:argument-resolvers>
+			<bean class="org.springframework.data.web.PageableHandlerMethodArgumentResolver">
+				<property name="oneIndexedParameters" value="true" />
+				<property name="pageParameterName" value="page.page" />
+				<property name="sizeParameterName" value="page.size" />
+			</bean>
+			<!-- <bean class="com.geoplagas.infrastructure.web.argumentresolvers.UsuarioResolver" /> -->
+			<bean class="com.geoplagas.providers.infrastructure.web.argumentresolvers.AppUserResolver" />
+			<bean class="org.springframework.mobile.device.DeviceWebArgumentResolver" />
+		</mvc:argument-resolvers>
+		<mvc:async-support default-timeout="1600" task-executor="geoplagasExecutor" />
+		<mvc:path-matching suffix-pattern="false" />
+	</mvc:annotation-driven>
+	
+	<mvc:resources order="-10" mapping="/robots.txt"
+		location="/robots.txt" />
+		
+	<mvc:resources order="-11" mapping="/favicon.ico" location="/favicon.ico" />
+
+	<mvc:view-controller path="/login" view-name="login" />
+	<mvc:view-controller path="/" view-name="inicio" />
+	
+	<bean id="geoplagasConversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+			
+			</list>
+		</property>
+	</bean>
+
+	<!-- Configure the multipart resolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/jsp/" p:suffix=".jsp"
+		p:exposeContextBeansAsAttributes="true" p:redirectHttp10Compatible="false" />
+	
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+	</bean>
+
+<beans profile="dev">
+	<bean class="com.geoplagas.providers.infrastructure.web.filters.FakeHttpSessionConfiguration"/>
+</beans>
+<beans profile="beta">
+	<bean class="com.geoplagas.providers.infrastructure.web.filters.FakeHttpSessionConfiguration"/>
+</beans>
+<beans profile="default">
+	<bean class="org.springframework.session.web.http.DefaultCookieSerializer" id="providersCookieSerializer" p:cookieName="PVSESSION"/>
+	<bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration" p:cookieSerializer-ref="providersCookieSerializer"/>
+	<bean class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:usePool="true" p:hostName="iddl"/>
+</beans>
+
+
+</beans>
