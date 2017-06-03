@@ -22,7 +22,7 @@ public class EmpleadosController {
 	private EmpleadoRepository empleadoRepository;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@RequestMapping(value = "/nominas/{empresaId}/empleados/{listado}.json", method = RequestMethod.GET)
+	@RequestMapping(value = "/nominasApi/{empresaId}/empleados/{listado}.json", method = RequestMethod.GET)
 	public @ResponseBody List<Empleado> getListadoEmpleados(@PathVariable Long empresaId,@PathVariable String listado) {
 		logger.debug("metodo getListadoEmpleados solicita todas los empleados ");
 		List<Empleado> empleados= empleadoRepository.findByEmpresaId(empresaId);

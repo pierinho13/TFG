@@ -3,6 +3,7 @@
 	<name>NominasWeb</name>
 	<comment></comment>
 	<projects>
+		<project>CdnNominas</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

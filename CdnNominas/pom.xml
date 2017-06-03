@@ -17,7 +17,7 @@
 	</properties>
 
 	<build>
-		<finalName>cdnproviders</finalName>
+		<finalName>cdnnominas</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

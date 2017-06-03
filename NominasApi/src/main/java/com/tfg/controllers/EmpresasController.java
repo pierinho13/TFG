@@ -20,7 +20,7 @@ public class EmpresasController {
 	private EmpresaRepository empresaRepository;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@RequestMapping(value = "/nominas/empresas", method = RequestMethod.GET)
+	@RequestMapping(value = "/nominasApi/empresas", method = RequestMethod.GET)
 	public @ResponseBody List<Empresa> getListadoEmpresas() {
 		logger.debug("metodo getListadoEmpresas solicita todas las empresas ");
 		List<Empresa> empresas= empresaRepository.obtieneTodasLasEmpresas();
