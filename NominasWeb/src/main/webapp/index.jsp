@@ -5,8 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Inicio sesion</title>
-<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
-<link rel="stylesheet" href="../static/css/style.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="/nominas/assets/estilos-comunes/style.css" media="screen" type="text/css" />
 </head>
 <body>
 <label>Esta es la pagina por defecto</label>

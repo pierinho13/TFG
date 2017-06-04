@@ -11,5 +11,5 @@
 </body>
 </html>
 <script type="text/javascript">
-document.location.href="/cdnnominas/index.html"
+document.location.href="/nominas/index.html"
 </script>

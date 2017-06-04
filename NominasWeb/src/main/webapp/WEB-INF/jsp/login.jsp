@@ -5,12 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Inicio sesion</title>
-<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
-<link rel="stylesheet" href="static/css/style.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="/nominas/assets/estilos-comunes/style.css" media="screen" type="text/css" />
 </head>
 <body>
 <div class="login-card">
-    <h1>Acceso <img class="candado"  src="static/imgs/candado.png"></h1><br>
+    <h1>Acceso <img class="candado"  src="/nominas/assets/img/candado.png"></h1><br>
      
   <form>
     <input type="text" name="user" placeholder="Username">
