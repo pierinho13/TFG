@@ -4,12 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inicio de sesion</title>
+<title>Inicio sesion</title>
+<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+<link rel="stylesheet" href="static/css/style.css" media="screen" type="text/css" />
 </head>
 <body>
- <label>Esta es la pantalla de login</label>
+<div class="login-card">
+    <h1>Acceso <img class="candado"  src="static/imgs/candado.png"></h1><br>
+     
+  <form>
+    <input type="text" name="user" placeholder="Username">
+    <input type="password" name="pass" placeholder="Password">
+    <input type="submit" name="login" class="login login-submit" value="Acceder">
+  </form>
+
+  <div class="login-help">
+    <a href="#">Forgot Password</a>
+  </div>
+</div>
 </body>
 </html>
 <script type="text/javascript">
-document.location.href="/cdnnominas/index.html"
 </script>

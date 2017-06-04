@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class InicioController {
-	@RequestMapping(value = {"/","/inicio","/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/inicio"}, method = RequestMethod.GET)
 	public String inicioLogin(){
 		return "login";
 	}

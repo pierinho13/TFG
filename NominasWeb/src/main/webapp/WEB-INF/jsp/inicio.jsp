@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inicio sesion</title>
-<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
-<link rel="stylesheet" href="../static/css/style.css" media="screen" type="text/css" />
+<title>Te redirigido a Angular</title>
 </head>
 <body>
-<label>Esta es la pagina por defecto</label>
+ <label>Esta es la pantalla de inicio</label>
 </body>
 </html>
 <script type="text/javascript">
+document.location.href="/cdnnominas/index.html"
 </script>
