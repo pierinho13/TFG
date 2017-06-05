@@ -2,12 +2,15 @@ package com.tfg.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -22,6 +25,7 @@ public class Usuario implements Serializable{
 	private Date fechaAlta;
 	private Boolean esAdmin;
 	private Boolean esComercial;
+	private Set<RoleUsuario> roles = new HashSet<RoleUsuario>();
 
 
 	@Id
@@ -93,7 +97,15 @@ public class Usuario implements Serializable{
 	public void setEsComercial(Boolean esComercial) {
 		this.esComercial = esComercial;
 	}
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	public Set<RoleUsuario> getRoles() {
+		return roles;
+	}
 
+	public void setRoles(Set<RoleUsuario> roles) {
+		this.roles = roles;
+	}
 
 	private static final long serialVersionUID = -8480201021225643322L;
 }
