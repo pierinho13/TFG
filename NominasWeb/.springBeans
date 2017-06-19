@@ -9,7 +9,7 @@
 	<configs>
 		<config>src/main/webapp/WEB-INF/spring/servlet-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/controladores.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/servlet-security.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
