@@ -15,7 +15,9 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
-		<security:form-login login-page="/login" />
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login?error=true" />
+		<security:logout invalidate-session="true" logout-url="/logout" />
 	</security:http>
 
 
