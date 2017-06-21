@@ -9,8 +9,9 @@
 <link rel="stylesheet" href="/nominas/assets/estilos-comunes/style.css" media="screen" type="text/css" />
 </head>
 <body>
+<header class="header-login">TFG  Piero Rospigliosi </header>
 <div class="login-card">
-    <h1>Acceso <img class="candado"  src="/nominas/assets/img/candado.png"></h1><br>
+    <h1>Acceso <img class="candado" src="/nominas/assets/img/candado.png"></h1><br>
   <form name='f' action="j_spring_security_check" method='POST'>
       <table>
          <tr>
@@ -33,7 +34,7 @@
 <!--   </form> -->
 
   <div class="login-help">
-    <a href="#">Forgot Password</a>
+    <a href="#">¿Olvidaste la contraseña?</a>
   </div>
 	<c:if test="${param.error != null}">
 		<span style="color:red;"> Usuario y/o contraseña no válidos</span>
