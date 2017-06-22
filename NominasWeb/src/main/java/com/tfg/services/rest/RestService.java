@@ -18,7 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class RestService
 {
-	private final static String API_PREFIX = "providers";
+	private final static String API_PREFIX = "";
 	
 	//@Value("${url.api}")// si lo tuviera metido en el propierties q no tengo
 	private String apiHost = "http://localhost:8020";
@@ -32,96 +32,105 @@ public class RestService
 		this.restTemplate = new RestTemplate();
 	}
 	
-	public Object get( String _url )
+	public Object get( String url )
 	{
-		return this.get( _url, null );
+		return this.get( url, null );
 	}
 	
-	public Object get( String _url, Map<String, ?> _params )
+	public Object get( String url, Map<String, ?> params )
 	{
-		return this.get( _url, _params, Object.class );
+		return this.get( url, params, Object.class );
 	}
 	
-	public Object get( String _url, Map<String, ?> _params, Class<?> _clazz )
+	public Object get( String url, Map<String, ?> params, Class<?>  clazz )
 	{
-		if( _params == null )
+		if( params == null ){
 			
-			_params = new HashMap<>();
+			params = new HashMap<>();
+		}
+			
 		
-		logger.info( "GET: Se va a llamar a la url: " + _url );
 		
-		UriComponentsBuilder _builder = UriComponentsBuilder.fromUriString( _url );
+		logger.info( "GET: Se va a llamar a la url: " + url );
 		
-		for( String _key : _params.keySet() )
+		UriComponentsBuilder  builder = UriComponentsBuilder.fromUriString( url );
 		
-			_builder = _builder.queryParam( _key, _params.get( _key ) );
+		for( String  key : params.keySet() ){
+			
+			builder =  builder.queryParam(  key, params.get(  key ) );
+		}
 		
-		URI _uri = _builder.build().encode().toUri();
 		
-		return this.restTemplate.getForObject( _uri, _clazz );
+		URI  uri =  builder.build().encode().toUri();
+		
+		return this.restTemplate.getForObject(  uri,  clazz );
 	}
 	
-	public Object post( String _url, Map<String, ?> _params )
+	public Object post( String url, Map<String, ?> params )
 	{
-		if( _params == null )
+		if( params == null ){
 			
-			_params = new HashMap<>();
+			params = new HashMap<>();
+		}
+			
 
-		logger.info( "POST: Se va a llamar a la url: " + _url );
+		logger.info( "POST: Se va a llamar a la url: " + url );
 		
-		return this.restTemplate.postForObject( _url, _params, Object.class );
+		return this.restTemplate.postForObject( url, params, Object.class );
 	}
 	
-	public Object put( String _url, Map<String, ?> _params )
+	public Object put( String url, Map<String, ?> params )
 	{
-		return this.deletePut(_url, _params, HttpMethod.PUT );
+		return this.deletePut(url, params, HttpMethod.PUT );
 	}
 	
-	public Object delete( String _url, Map<String, ?> _params )
+	public Object delete( String url, Map<String, ?> params )
 	{
-		return this.deletePut(_url, _params, HttpMethod.DELETE );
+		return this.deletePut(url, params, HttpMethod.DELETE );
 	}
 	
-	private Object deletePut( String _url, Map<String, ?> _params, HttpMethod _method )
+	private Object deletePut( String url, Map<String, ?> params, HttpMethod  method )
 	{
-		if( _params == null )
+		if( params == null ){
 			
-			_params = new HashMap<>();
+			params = new HashMap<>();
+		}
+			
 
-		logger.info( _method + ": Se va a llamar a la url: " + _url );
+		logger.info(  method + ": Se va a llamar a la url: " + url );
 		
-		HttpHeaders _headers = new HttpHeaders();
+		HttpHeaders  headers = new HttpHeaders();
 		
-		_headers.setContentType( MediaType.APPLICATION_JSON );
+		 headers.setContentType( MediaType.APPLICATION_JSON );
 		
-		HttpEntity<Map<String, ?>> _requestUpdate = new HttpEntity<>( _params, _headers );
+		HttpEntity<Map<String, ?>> requestUpdate = new HttpEntity<>( params,  headers );
 		
-		HttpEntity<Object> _response = this.restTemplate.exchange( _url, _method, _requestUpdate, Object.class, _params );
+		HttpEntity<Object>  response = this.restTemplate.exchange( url,  method, requestUpdate, Object.class, params );
 				
-		return _response.getBody();
+		return  response.getBody();
 	}
 	
-	public String obtieneUrlApi( String _url )
+	public String obtieneUrlApi( String url )
 	{
-		return this.obtieneUrlApi( _url, null );
+		return this.obtieneUrlApi( url, null );
 	}
 	
-	public String obtieneUrlApi( String _url, Long _providerId )
+	public String obtieneUrlApi( String url, Long empresaId )
 	{
-		return this.obtieneUrlApi( _url, _providerId, null );
+		return this.obtieneUrlApi( url, empresaId, null );
 	}
 	
-	public String obtieneUrlApi( String _url, Long _providerId, String _countryCode )
+	public String obtieneUrlApi( String url, Long empresaId, String countryCode )
 	{
-		String _ret = this.apiHost.trim().replaceAll( "\\/$+", "" ) + 
+		String  ret = this.apiHost.trim().replaceAll( "\\/$+", "" ) + 
 					  "/" + RestService.API_PREFIX + "/" + 
-					  ( ( _countryCode != null ) ? ( _countryCode + "/" ) : "" ) +
-					  ( ( _providerId != null ) ? ( _providerId + "/" ) : "" ) + 
-					  ( ( _url != null ) ? _url.trim().replaceAll( "^\\/+", "" ) : "" );
+					  ( ( countryCode != null ) ? ( countryCode + "/" ) : "" ) +
+					  ( ( empresaId != null ) ? ( empresaId + "/" ) : "" ) + 
+					  ( ( url != null ) ? url.trim().replaceAll( "^\\/+", "" ) : "" );
 		
-		logger.debug("La url obtenida es {}",_ret);
+		logger.debug("La url obtenida es {}", ret);
 		
-		return _ret;
+		return  ret;
 	}
 }
 
