@@ -10,6 +10,10 @@ public class InicioController {
 	public String inicio(){
 		return "inicio";
 	}
+	@RequestMapping(value = {"/favicon.ico"}, method = RequestMethod.GET)
+	public String getInicioDesdeFavicon(){
+		return "inicio";
+	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(){
