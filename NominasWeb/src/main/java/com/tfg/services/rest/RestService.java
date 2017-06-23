@@ -123,7 +123,7 @@ public class RestService
 	public String obtieneUrlApi( String url, Long empresaId, String countryCode )
 	{
 		String  ret = this.apiHost.trim().replaceAll( "\\/$+", "" ) + 
-					  "/" + RestService.API_PREFIX + "/" + 
+					  "/" + 
 					  ( ( countryCode != null ) ? ( countryCode + "/" ) : "" ) +
 					  ( ( empresaId != null ) ? ( empresaId + "/" ) : "" ) + 
 					  ( ( url != null ) ? url.trim().replaceAll( "^\\/+", "" ) : "" );
