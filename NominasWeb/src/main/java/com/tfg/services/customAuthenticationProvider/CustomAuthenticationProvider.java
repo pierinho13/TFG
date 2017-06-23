@@ -32,7 +32,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 			if(credentials.equals(user.getPassword())){ // se compara lo que hay en el login con lo que hay almacenado en base de datos
 				
 				logger.debug("Usuario autenticado correctamente");
-				return new UsernamePasswordAuthenticationToken(principal, credentials,user.getAuthorities());
+				return new UsernamePasswordAuthenticationToken(user, credentials,user.getAuthorities());
 			}else{
 				logger.error("Error de login");
 				throw new BadCredentialsException("No coincide usuario o contraseña, o no existe");
