@@ -18,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class RestService
 {
-	private final static String API_PREFIX = "";
 	
 	//@Value("${url.api}")// si lo tuviera metido en el propierties q no tengo
 	private String apiHost = "http://localhost:8020";
@@ -27,23 +26,19 @@ public class RestService
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public RestService()
-	{
+	public RestService(){
 		this.restTemplate = new RestTemplate();
 	}
 	
-	public Object get( String url )
-	{
+	public Object get( String url ){
 		return this.get( url, null );
 	}
 	
-	public Object get( String url, Map<String, ?> params )
-	{
+	public Object get( String url, Map<String, ?> params ){
 		return this.get( url, params, Object.class );
 	}
 	
-	public Object get( String url, Map<String, ?> params, Class<?>  clazz )
-	{
+	public Object get( String url, Map<String, ?> params, Class<?>  clazz ){
 		if( params == null ){
 			
 			params = new HashMap<>();
@@ -66,8 +61,7 @@ public class RestService
 		return this.restTemplate.getForObject(  uri,  clazz );
 	}
 	
-	public Object post( String url, Map<String, ?> params )
-	{
+	public Object post( String url, Map<String, ?> params ){
 		if( params == null ){
 			
 			params = new HashMap<>();
@@ -79,18 +73,15 @@ public class RestService
 		return this.restTemplate.postForObject( url, params, Object.class );
 	}
 	
-	public Object put( String url, Map<String, ?> params )
-	{
+	public Object put( String url, Map<String, ?> params ){
 		return this.deletePut(url, params, HttpMethod.PUT );
 	}
 	
-	public Object delete( String url, Map<String, ?> params )
-	{
+	public Object delete( String url, Map<String, ?> params ){
 		return this.deletePut(url, params, HttpMethod.DELETE );
 	}
 	
-	private Object deletePut( String url, Map<String, ?> params, HttpMethod  method )
-	{
+	private Object deletePut( String url, Map<String, ?> params, HttpMethod  method ) {
 		if( params == null ){
 			
 			params = new HashMap<>();
@@ -110,27 +101,20 @@ public class RestService
 		return  response.getBody();
 	}
 	
-	public String obtieneUrlApi( String url )
-	{
+	public String obtieneUrlApi( String url ) {
 		return this.obtieneUrlApi( url, null );
 	}
 	
-	public String obtieneUrlApi( String url, Long empresaId )
-	{
-		return this.obtieneUrlApi( url, empresaId, null );
-	}
-	
-	public String obtieneUrlApi( String url, Long empresaId, String countryCode )
-	{
+	public String obtieneUrlApi( String url, Long empresaId ) {
 		String  ret = this.apiHost.trim().replaceAll( "\\/$+", "" ) + 
-					  "/" + 
-					  ( ( countryCode != null ) ? ( countryCode + "/" ) : "" ) +
-					  ( ( empresaId != null ) ? ( empresaId + "/" ) : "" ) + 
-					  ( ( url != null ) ? url.trim().replaceAll( "^\\/+", "" ) : "" );
-		
+				  "/" + 
+				  ( ( empresaId != null ) ? ( empresaId + "/" ) : "" ) + 
+				  ( ( url != null ) ? url.trim().replaceAll( "^\\/+", "" ) : "" );
+	
 		logger.debug("La url obtenida es {}", ret);
-		
+	
 		return  ret;
 	}
+	
 }
 
