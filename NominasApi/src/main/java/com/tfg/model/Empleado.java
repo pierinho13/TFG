@@ -21,7 +21,7 @@ public class Empleado implements Serializable{
 	private Empresa empresa;
 	private Date fechaNacimiento;
 	private Date fechaAlta;
-	private TipoEmpleado TipoEmpleado;
+	private TipoEmpleado tipoEmpleado;
 	private String cargo;
 	private Boolean puedeVerOtrosEmpleados;
 	private Boolean puedeVerOtrasEmpresas; 
@@ -53,7 +53,7 @@ public class Empleado implements Serializable{
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	public Empresa getEmpresa() {
 		return empresa;
 	}
@@ -78,12 +78,13 @@ public class Empleado implements Serializable{
 		this.fechaAlta = fechaAlta;
 	}
 
+	
 	public TipoEmpleado getTipoEmpleado() {
-		return TipoEmpleado;
+		return tipoEmpleado;
 	}
 
 	public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
-		TipoEmpleado = tipoEmpleado;
+		this.tipoEmpleado = tipoEmpleado;
 	}
 
 	public String getCargo() {

@@ -15,7 +15,7 @@ public class EmpleadoCommand implements Serializable {
 	private Empresa empresa;
 	private Date fechaNacimiento;
 	private Date fechaAlta;
-	private TipoEmpleado TipoEmpleado;
+	private TipoEmpleado tipoEmpleado;
 	private String cargo;
 	private Boolean puedeVerOtrosEmpleados;
 	private Boolean puedeVerOtrasEmpresas; 
@@ -92,12 +92,12 @@ public class EmpleadoCommand implements Serializable {
 
 
 	public TipoEmpleado getTipoEmpleado() {
-		return TipoEmpleado;
+		return tipoEmpleado;
 	}
 
 
 	public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
-		TipoEmpleado = tipoEmpleado;
+		this.tipoEmpleado = tipoEmpleado;
 	}
 
 

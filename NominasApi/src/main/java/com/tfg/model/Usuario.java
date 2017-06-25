@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Usuario implements Serializable{
@@ -21,6 +24,7 @@ public class Usuario implements Serializable{
 	private String username;
 	private String password;
 //	private Empleado empleado;
+	@JsonIgnore
 	private Empresa empresa;
 	private Date fechaAlta;
 	private Boolean esAdmin;
@@ -64,7 +68,7 @@ public class Usuario implements Serializable{
 //		this.empleado = empleado;
 //	}
 	
-	@ManyToOne(fetch=FetchType.LAZY,optional=false)
+	@ManyToOne(fetch=FetchType.EAGER,optional=false)
 	public Empresa getEmpresa() {
 		return empresa;
 	}
@@ -106,6 +110,10 @@ public class Usuario implements Serializable{
 	public void setRoles(Set<RoleUsuario> roles) {
 		this.roles = roles;
 	}
-
+	
+	@Transient
+	public Long getMiEmpresaId() {
+		return this.getEmpresa().getId();
+	}
 	private static final long serialVersionUID = -8480201021225643322L;
 }

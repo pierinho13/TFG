@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.tfg.model.Empleado;
 
 @Transactional(readOnly = true)
-public interface EmpleadoRepository extends PagingAndSortingRepository<Empleado, Long> {
+public interface EmpleadoRepository extends PagingAndSortingRepository<Empleado, Long>, EmpleadoRepositoryCustom {
 
 	Empleado findById(Long id);
 	
