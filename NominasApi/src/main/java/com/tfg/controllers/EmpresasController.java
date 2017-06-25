@@ -26,6 +26,12 @@ public class EmpresasController {
 		List<Empresa> empresas= empresaRepository.obtieneTodasLasEmpresas();
 		return empresas;
 	}
+	@RequestMapping(value = "/nominasApi/empresas/{empresaId}", method = RequestMethod.GET)
+	public @ResponseBody Empresa getEmpresa(@PathVariable Long empresaId) {
+		logger.debug("metodo getListadoEmpresas solicita la empresa con Id {}",empresaId);
+		Empresa empresa= empresaRepository.findById(empresaId);
+		return empresa;
+	}
 	
 
 }

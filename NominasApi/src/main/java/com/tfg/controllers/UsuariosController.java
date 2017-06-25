@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tfg.service.UsuarioManager;
+import com.tfg.manager.UsuarioManager;
 import com.tfg.utils.dto.UsuarioDto;
 
 

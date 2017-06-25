@@ -1,4 +1,4 @@
-package com.tfg.service;
+package com.tfg.manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmpleadoManager {
+public class EmpresaManager {
 	
 //	@Autowired private ClasificacionClienteRepository clasificacionClienteRepository ;
 //	@Autowired private EmpresaRepository empresaRepository;

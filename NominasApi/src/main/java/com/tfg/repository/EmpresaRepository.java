@@ -18,5 +18,7 @@ public interface EmpresaRepository extends PagingAndSortingRepository<Empresa, L
 //	
 	@Query("select e from Empresa e order by e.nombre")
 	List<Empresa> obtieneTodasLasEmpresas();
+	
+	Empresa findById(Long id );
 }
 

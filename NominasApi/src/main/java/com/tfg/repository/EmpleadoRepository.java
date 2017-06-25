@@ -11,6 +11,8 @@ public interface EmpleadoRepository extends PagingAndSortingRepository<Empleado,
 
 	Empleado findById(Long id);
 	
+	Empleado findByIdAndEmpresaId(Long id, Long empresaId);
+	
 	List<Empleado> findByEmpresaId(Long empresaId);
 	
 	//ClasificacionCliente findByIdAndEmpresaId(Long id, Long empresaId);
