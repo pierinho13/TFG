@@ -42,7 +42,7 @@ public class EmpresasController {
 		return empresas;
 	}
 	
-	@RequestMapping(value = "/nominasApi/empresas/{empresaId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/nominasApi/{empresaId}/empresa", method = RequestMethod.GET)
 	public @ResponseBody MensajeRespuesta getEmpresa(@PathVariable Long empresaId) {
 		
 		logger.debug("metodo getEmpresa ");

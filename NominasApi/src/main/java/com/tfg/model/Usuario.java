@@ -59,7 +59,7 @@ public class Usuario implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@ManyToOne(fetch=FetchType.LAZY,optional=false)
+	@ManyToOne(fetch=FetchType.EAGER,optional=false)
 	public Empleado getEmpleado() {
 		return empleado;
 	}
