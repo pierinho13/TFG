@@ -4,13 +4,17 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -21,13 +25,19 @@ public class RestService
 	
 	//@Value("${url.api}")// si lo tuviera metido en el propierties q no tengo
 	private String apiHost = "http://localhost:8020";
+	private final static String API_PREFIX = "nominasApi";
 	
-	private final RestTemplate restTemplate;
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	private HttpComponentsClientHttpRequestFactory clientHttpRequestFactory;
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public RestService(){
-		this.restTemplate = new RestTemplate();
+	@PostConstruct
+	public void init()
+	{
+		this.restTemplate = new RestTemplate( this.clientHttpRequestFactory );
 	}
 	
 	public Object get( String url ){
@@ -107,7 +117,7 @@ public class RestService
 	
 	public String obtieneUrlApi( String url, Long empresaId ) {
 		String  ret = this.apiHost.trim().replaceAll( "\\/$+", "" ) + 
-				  "/" + 
+				  "/" +  RestService.API_PREFIX + "/" + 
 				  ( ( empresaId != null ) ? ( empresaId + "/" ) : "" ) + 
 				  ( ( url != null ) ? url.trim().replaceAll( "^\\/+", "" ) : "" );
 	

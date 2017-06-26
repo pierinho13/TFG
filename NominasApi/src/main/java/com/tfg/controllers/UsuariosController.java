@@ -20,7 +20,7 @@ public class UsuariosController {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@RequestMapping(method = RequestMethod.GET, value="/users/byUsername/{username}")
+	@RequestMapping(method = RequestMethod.GET, value="/nominasApi/users/byUsername/{username}")
 	@ResponseBody UsuarioDto getUserProviderByUsername(@PathVariable String username) {
 		
 		logger.debug("Estoy en método getUserProviderByUsername()");
