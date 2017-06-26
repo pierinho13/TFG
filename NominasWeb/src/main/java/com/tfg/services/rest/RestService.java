@@ -49,26 +49,34 @@ public class RestService
 	}
 	
 	public Object get( String url, Map<String, ?> params, Class<?>  clazz ){
-		if( params == null ){
+		try {
 			
-			params = new HashMap<>();
+			if( params == null ){
+				
+				params = new HashMap<>();
+			}
+			
+			
+			
+			logger.info( "GET: Se va a llamar a la url: " + url );
+			
+			UriComponentsBuilder  builder = UriComponentsBuilder.fromUriString( url );
+			
+			for( String  key : params.keySet() ){
+				
+				builder =  builder.queryParam(  key, params.get(  key ) );
+			}
+			
+			
+			URI  uri =  builder.build().encode().toUri();
+			
+			return this.restTemplate.getForObject(  uri,  clazz );
+		} catch (Exception e) {
+			//Si no lo encuentra que no pete sino que devuelva null
+			logger.error(e.getMessage());
+			return null;
 		}
-			
 		
-		
-		logger.info( "GET: Se va a llamar a la url: " + url );
-		
-		UriComponentsBuilder  builder = UriComponentsBuilder.fromUriString( url );
-		
-		for( String  key : params.keySet() ){
-			
-			builder =  builder.queryParam(  key, params.get(  key ) );
-		}
-		
-		
-		URI  uri =  builder.build().encode().toUri();
-		
-		return this.restTemplate.getForObject(  uri,  clazz );
 	}
 	
 	public Object post( String url, Map<String, ?> params ){
