@@ -23,6 +23,10 @@
             <td><input type='password' name='j_password' /></td>
          </tr>
          <tr>
+            <td>Recordar sesión:</td>
+            <td><input type='checkbox' name='_spring_security_remember_me' checked="checked"/></td>
+         </tr>
+         <tr>
             <td><input name="submit" type="submit" class="login login-submit" value="Iniciar" /></td>
          </tr>
       </table>
@@ -33,9 +37,9 @@
 <!--     <input type="submit" name="login" class="login login-submit" value="Acceder"> -->
 <!--   </form> -->
 
-  <div class="login-help">
-    <a href="#">¿Olvidaste la contraseña?</a>
-  </div>
+<!--   <div class="login-help"> -->
+<!--     <a href="#">¿Olvidaste la contraseña?</a> -->
+<!--   </div> -->
 	<c:if test="${param.error != null}">
 		<span style="color:red;"> Usuario y/o contraseña no válidos</span>
    </c:if>  
