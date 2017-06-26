@@ -1,5 +1,6 @@
 package com.tfg.utils.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import com.tfg.model.TipoEmpleado;
@@ -12,10 +13,12 @@ public class EmpleadoDto {
 	private Date fechaNacimiento;
 	private Date fechaAlta;
 	private TipoEmpleado tipoEmpleado;
+	private BigDecimal salario;
+	private BigDecimal rentabilidad;
 	
 	
 	public EmpleadoDto(Long id, String nombre, String apellidos, Date fechaNacimiento, Date fechaAlta,
-			com.tfg.model.TipoEmpleado tipoEmpleado) {
+			com.tfg.model.TipoEmpleado tipoEmpleado,BigDecimal salario, BigDecimal rentabilidad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -23,6 +26,8 @@ public class EmpleadoDto {
 		this.fechaNacimiento = fechaNacimiento;
 		this.fechaAlta = fechaAlta;
 		this.tipoEmpleado = tipoEmpleado;
+		this.salario = salario;
+		this.rentabilidad = rentabilidad;
 	}
 
 	public Long getId() {
@@ -71,6 +76,22 @@ public class EmpleadoDto {
 
 	public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
 		this.tipoEmpleado = tipoEmpleado;
+	}
+
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
+	public BigDecimal getRentabilidad() {
+		return rentabilidad;
+	}
+
+	public void setRentabilidad(BigDecimal rentabilidad) {
+		this.rentabilidad = rentabilidad;
 	}
 	
 }

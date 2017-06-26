@@ -1,6 +1,7 @@
 package com.tfg.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -26,6 +27,8 @@ public class Empleado implements Serializable{
 	private Date fechaAlta;
 	private TipoEmpleado tipoEmpleado;
 	private String cargo;
+	private BigDecimal salario;
+	private BigDecimal rentabilidad;
 
 
 	@Id
@@ -94,6 +97,23 @@ public class Empleado implements Serializable{
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
+	}
+	
+	
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
+	public BigDecimal getRentabilidad() {
+		return rentabilidad;
+	}
+
+	public void setRentabilidad(BigDecimal rentabilidad) {
+		this.rentabilidad = rentabilidad;
 	}
 
 	@Transient

@@ -5,9 +5,9 @@ insert into empresa (id,descripcion,nombre,numeroempleados,actividad,fechaalta,f
 
 --empleados
 
-insert into empleado (id,apellidos,cargo,nombre,empresa_id,tipoempleado,fechaalta,fechanacimiento) values(1,'Rospigliosi Beltran','creador','Piero',1,0,'06/07/2017','25/12/1992');
-insert into empleado (id,apellidos,cargo,nombre,empresa_id,tipoempleado,fechaalta,fechanacimiento) values(2,'Sanchez','comercial','Pepe',1,1,'04/04/2017','28/07/1998');
-insert into empleado (id,apellidos,cargo,nombre,empresa_id,tipoempleado,fechaalta,fechanacimiento) values(3,'Admin','admin','Super',1,0,'04/04/2017','13/11/1994');
+insert into empleado (id,apellidos,cargo,nombre,empresa_id,tipoempleado,fechaalta,fechanacimiento,salario,rentabilidad) values(1,'Rospigliosi Beltran','creador','Piero',1,0,'06/07/2017','25/12/1992',2000,90);
+insert into empleado (id,apellidos,cargo,nombre,empresa_id,tipoempleado,fechaalta,fechanacimiento,salario,rentabilidad) values(2,'Sanchez','comercial','Pepe',1,1,'04/04/2017','28/07/1998',1500,80);
+insert into empleado (id,apellidos,cargo,nombre,empresa_id,tipoempleado,fechaalta,fechanacimiento,salario,rentabilidad) values(3,'Admin','admin','Super',1,0,'04/04/2017','13/11/1994',3000,100);
 
 --usuarios
 

@@ -8,7 +8,7 @@
 <title>Inicio sesion</title>
 <link rel="stylesheet" href="/nominas/assets/estilos-comunes/style.css" media="screen" type="text/css" />
 </head>
-<body>
+<body data-login="PAGINA_DE_LOGIN">
 <header class="header-login">TFG  Piero Rospigliosi </header>
 <div class="login-card">
     <h1>Acceso <img class="candado" src="/nominas/assets/img/candado.png"></h1><br>

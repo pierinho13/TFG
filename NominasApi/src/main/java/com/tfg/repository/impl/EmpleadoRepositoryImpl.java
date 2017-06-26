@@ -35,7 +35,7 @@ public class EmpleadoRepositoryImpl implements EmpleadoRepositoryCustom{
 
 		String fromJpql = " from Empleado e  ";
 		String jpql = "select new com.tfg.utils.dto.EmpleadoDto (e.id, e.nombre, e.apellidos,e.fechaNacimiento, "
-				+ "e.fechaAlta,e.tipoEmpleado) " + fromJpql;
+				+ "e.fechaAlta,e.tipoEmpleado,e.salario,e.rentabilidad) " + fromJpql;
 		String sujetoJpqlCount = "select count(e) " + fromJpql;
 		String predicadoJpql = " where e.empresa.id=:empresaId ";
 		
@@ -49,6 +49,8 @@ public class EmpleadoRepositoryImpl implements EmpleadoRepositoryCustom{
 		predicadoJpql = queryUtils.concatenaSiEsNecesario(command.getTipoEmpleado(), " and e.tipoEmpleado = :tipoEmpleado", predicadoJpql, parametrosQuery);
 		predicadoJpql = queryUtils.concatenaSiEsNecesario(command.getFechaNacimiento(), " and e.fechaNacimiento <= :fechaNacimiento ", predicadoJpql, parametrosQuery);
 		predicadoJpql = queryUtils.concatenaSiEsNecesario(command.getFechaAlta(), " and e.fechaAlta <= :fechaAlta ", predicadoJpql, parametrosQuery);
+		predicadoJpql = queryUtils.concatenaSiEsNecesario(command.getSalario(), " and e.salario = :salario ", predicadoJpql, parametrosQuery);
+		predicadoJpql = queryUtils.concatenaSiEsNecesario(command.getRentabilidad(), " and e.rentabilidad = :rentabilidad ", predicadoJpql, parametrosQuery);
 		
 		String jpqlCount = sujetoJpqlCount + predicadoJpql;
 		long numRegistros = queryUtils.cuentaRegistros(em.createQuery(jpqlCount), parametrosQuery);

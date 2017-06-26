@@ -1,6 +1,7 @@
 package com.tfg.utils.commands;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import com.tfg.model.Empresa;
@@ -17,6 +18,8 @@ public class EmpleadoCommand implements Serializable {
 	private Date fechaAlta;
 	private TipoEmpleado tipoEmpleado;
 	private String cargo;
+	private BigDecimal salario;
+	private BigDecimal rentabilidad;
 	
 	
 	public Long getId() {
@@ -106,6 +109,26 @@ public class EmpleadoCommand implements Serializable {
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
+	}
+	
+
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
+
+	public BigDecimal getRentabilidad() {
+		return rentabilidad;
+	}
+
+
+	public void setRentabilidad(BigDecimal rentabilidad) {
+		this.rentabilidad = rentabilidad;
 	}
 
 

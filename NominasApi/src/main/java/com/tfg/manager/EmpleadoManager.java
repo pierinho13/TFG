@@ -46,7 +46,8 @@ public class EmpleadoManager {
 		empleado.setCargo(command.getCargo());
 		empleado.setFechaNacimiento(command.getFechaNacimiento());
 		empleado.setTipoEmpleado(command.getTipoEmpleado());
-		
+		empleado.setSalario(command.getSalario());
+		empleado.setRentabilidad(command.getRentabilidad());
 		
 		Empleado persisted = empleadoRepository.save(empleado);
 		

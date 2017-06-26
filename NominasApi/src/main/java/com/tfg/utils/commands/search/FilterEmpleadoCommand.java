@@ -1,6 +1,7 @@
 package com.tfg.utils.commands.search;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -13,6 +14,8 @@ public class FilterEmpleadoCommand implements Serializable {
 	private Date fechaNacimiento;
 	private Date fechaAlta;
 	private TipoEmpleado TipoEmpleado;
+	private BigDecimal salario;
+	private BigDecimal rentabilidad;
 	
 	
 	public String getNombre() {
@@ -62,6 +65,26 @@ public class FilterEmpleadoCommand implements Serializable {
 
 	public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
 		TipoEmpleado = tipoEmpleado;
+	}
+
+	
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
+
+	public BigDecimal getRentabilidad() {
+		return rentabilidad;
+	}
+
+
+	public void setRentabilidad(BigDecimal rentabilidad) {
+		this.rentabilidad = rentabilidad;
 	}
 
 
