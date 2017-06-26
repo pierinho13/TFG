@@ -23,7 +23,7 @@ public class Usuario implements Serializable{
 	private Long id;
 	private String username;
 	private String password;
-//	private Empleado empleado;
+	private Empleado empleado;
 	@JsonIgnore
 	private Empresa empresa;
 	private Date fechaAlta;
@@ -59,14 +59,14 @@ public class Usuario implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-//	@ManyToOne(fetch=FetchType.LAZY,optional=false)
-//	public Empleado getEmpleado() {
-//		return empleado;
-//	}
-//
-//	public void setEmpleado(Empleado empleado) {
-//		this.empleado = empleado;
-//	}
+	@ManyToOne(fetch=FetchType.LAZY,optional=false)
+	public Empleado getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
 	
 	@ManyToOne(fetch=FetchType.EAGER,optional=false)
 	public Empresa getEmpresa() {

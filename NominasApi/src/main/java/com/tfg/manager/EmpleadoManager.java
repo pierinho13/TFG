@@ -44,8 +44,6 @@ public class EmpleadoManager {
 		empleado.setNombre(command.getNombre());
 		empleado.setApellidos(command.getApellidos());
 		empleado.setCargo(command.getCargo());
-		empleado.setPuedeVerOtrasEmpresas(command.getPuedeVerOtrasEmpresas());
-		empleado.setPuedeVerOtrosEmpleados(command.getPuedeVerOtrosEmpleados());
 		empleado.setFechaNacimiento(command.getFechaNacimiento());
 		empleado.setTipoEmpleado(command.getTipoEmpleado());
 		

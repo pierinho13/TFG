@@ -10,6 +10,8 @@ public class AppUser extends User {
 	private String nombre;
 	private Long empresaId;
 	private String empresa;
+	private Long empleadoId;
+	private String empleado;
 	
 	public AppUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, authorities);
@@ -43,5 +45,22 @@ public class AppUser extends User {
 		this.empresa = empresa;
 	}
 	
+	public Long getEmpleadoId() {
+		return empleadoId;
+	}
+
+	public void setEmpleadoId(Long empleadoId) {
+		this.empleadoId = empleadoId;
+	}
+
+	public String getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(String empleado) {
+		this.empleado = empleado;
+	}
+
+
 	private static final long serialVersionUID = -6021347176756645068L;
 }

@@ -53,6 +53,8 @@ public class CustomUserDetailsService implements UserDetailsService{
 		String password = json.get( "password" ).getAsString();
 		String empresa = json.get( "empresa" ).getAsString();
 		Long empresaId = json.get( "empresaId" ).getAsLong();
+		Long empleadoId = json.get( "empleadoId" ).getAsLong();
+		String empleado = json.get( "empleado" ).getAsString();
 		
 		if( userId == null || username == null || username.trim().equals( "" ) || password == null || password.trim().equals( "" ) ||  empresaId == null )
 			
@@ -87,6 +89,10 @@ public class CustomUserDetailsService implements UserDetailsService{
 		user.setEmpresaId(empresaId);
 		
 		user.setNombre(username);
+		
+		user.setEmpleadoId(empleadoId);
+		
+		user.setEmpleado(empleado);
 		
 		return user;
 	}

@@ -17,8 +17,6 @@ public class EmpleadoCommand implements Serializable {
 	private Date fechaAlta;
 	private TipoEmpleado tipoEmpleado;
 	private String cargo;
-	private Boolean puedeVerOtrosEmpleados;
-	private Boolean puedeVerOtrasEmpresas; 
 	
 	
 	public Long getId() {
@@ -110,25 +108,6 @@ public class EmpleadoCommand implements Serializable {
 		this.cargo = cargo;
 	}
 
-
-	public Boolean getPuedeVerOtrosEmpleados() {
-		return puedeVerOtrosEmpleados;
-	}
-
-
-	public void setPuedeVerOtrosEmpleados(Boolean puedeVerOtrosEmpleados) {
-		this.puedeVerOtrosEmpleados = puedeVerOtrosEmpleados;
-	}
-
-
-	public Boolean getPuedeVerOtrasEmpresas() {
-		return puedeVerOtrasEmpresas;
-	}
-
-
-	public void setPuedeVerOtrasEmpresas(Boolean puedeVerOtrasEmpresas) {
-		this.puedeVerOtrasEmpresas = puedeVerOtrasEmpresas;
-	}
 
 	public boolean isNew() {
 		return id==null;

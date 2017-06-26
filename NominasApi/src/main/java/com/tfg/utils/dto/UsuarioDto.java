@@ -13,11 +13,13 @@ public class UsuarioDto {
 	private Date fechaAlta;
 	private Boolean esAdmin;
 	private Boolean esComercial;
+	private Long empleadoId;
+	private String empleado;
 	private Set<RoleUsuarioDto> roles = new HashSet<RoleUsuarioDto>();
 	
 	
 	public UsuarioDto(Long id, String username, String password, Long empresaId, Date fechaAlta, Boolean esAdmin,
-			Boolean esComercial, String empresa) {
+			Boolean esComercial, String empresa, Long empleadoId, String empleado) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -27,6 +29,8 @@ public class UsuarioDto {
 		this.esAdmin = esAdmin;
 		this.esComercial = esComercial;
 		this.empresa  = empresa;
+		this.empleadoId = empleadoId;
+		this.empleado = empleado;
 	}
 	public Long getId() {
 		return id;
@@ -81,6 +85,18 @@ public class UsuarioDto {
 	}
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
+	}
+	public Long getEmpleadoId() {
+		return empleadoId;
+	}
+	public void setEmpleadoId(Long empleadoId) {
+		this.empleadoId = empleadoId;
+	}
+	public String getEmpleado() {
+		return empleado;
+	}
+	public void setEmpleado(String empleado) {
+		this.empleado = empleado;
 	}
 	
 

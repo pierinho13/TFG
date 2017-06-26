@@ -15,7 +15,7 @@ public interface UsuarioRepository extends PagingAndSortingRepository<Usuario, L
 	Usuario findByIdAndEmpresaId(Long id, Long empresaId);
 	
 	@Query("select new com.tfg.utils.dto.UsuarioDto (u.id, u.username, u.password, e.id,"
-			+ "u.fechaAlta, u.esAdmin,u.esComercial,e.nombre) from Usuario u join u.empresa e where u.username =:username")
+			+ "u.fechaAlta, u.esAdmin,u.esComercial,e.nombre,emp.id, concat(emp.nombre,' ',emp.apellidos)) from Usuario u join u.empresa e join u.empleado emp where u.username =:username")
 	UsuarioDto findUsuarioForLoginByUsername(@Param("username") String username);
 }
 

@@ -12,19 +12,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Empleado implements Serializable{
 
 	private Long id;
 	private String nombre;
 	private String apellidos;
+	@JsonIgnore
 	private Empresa empresa;
 	private Date fechaNacimiento;
 	private Date fechaAlta;
 	private TipoEmpleado tipoEmpleado;
 	private String cargo;
-	private Boolean puedeVerOtrosEmpleados;
-	private Boolean puedeVerOtrasEmpresas; 
 
 
 	@Id
@@ -95,20 +96,9 @@ public class Empleado implements Serializable{
 		this.cargo = cargo;
 	}
 
-	public Boolean getPuedeVerOtrosEmpleados() {
-		return puedeVerOtrosEmpleados;
-	}
-
-	public void setPuedeVerOtrosEmpleados(Boolean puedeVerOtrosEmpleados) {
-		this.puedeVerOtrosEmpleados = puedeVerOtrosEmpleados;
-	}
-
-	public Boolean getPuedeVerOtrasEmpresas() {
-		return puedeVerOtrasEmpresas;
-	}
-
-	public void setPuedeVerOtrasEmpresas(Boolean puedeVerOtrasEmpresas) {
-		this.puedeVerOtrasEmpresas = puedeVerOtrasEmpresas;
+	@Transient
+	public Long getMiEmpresaId() {
+		return this.getEmpresa().getId();
 	}
 	
 	@Transient

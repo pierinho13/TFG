@@ -19,25 +19,27 @@ public class UtilController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@RequestMapping(value = { "/initial-data" }, method = RequestMethod.GET)
-	public @ResponseBody Map<String, Object> getInitData( AppUser _user )
+	public @ResponseBody Map<String, Object> getInitData( AppUser user )
 	{
 		
 		logger.trace("Estoy en metodo getInitData");
 		
-		Map<String, Object> _data = new HashMap<>();
+		Map<String, Object> data = new HashMap<>();
 		
-		_data.put( "date", new Date() );
+		data.put( "date", new Date() );
 		
-		_data.put( "username", _user.getUsername() );
+		data.put( "nombreEmpleado", user.getEmpleado() );
 		
-		_data.put( "empresaNombre", _user.getEmpresa() );
+		data.put( "username", user.getUsername() );
 		
-		Map<String, Object> _ret = new HashMap<>();
+		data.put( "empresaNombre", user.getEmpresa() );
 		
-		_ret.put( "codigo", "1" );
+		Map<String, Object> ret = new HashMap<>();
 		
-		_ret.put( "data", _data );
+		ret.put( "codigo", "1" );
 		
-		return _ret;
+		ret.put( "data", data );
+		
+		return ret;
 	}
 }
