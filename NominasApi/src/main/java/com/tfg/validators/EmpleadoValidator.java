@@ -41,11 +41,11 @@ public class EmpleadoValidator implements Validator {
 		}
 		
 		if(StringUtils.isBlank(command.getNombre())){
-			errors.rejectValue("name","El nombre es obligatorio");
+			errors.rejectValue("nombre","El nombre es obligatorio");
 		}
 		
 		if(StringUtils.isBlank(command.getCargo())){
-			errors.rejectValue("name","El cargo es obligatorio");
+			errors.rejectValue("cargo","El cargo es obligatorio");
 		}
 		
 		if(!BooleanUtils.isTrue(command.isNew())){

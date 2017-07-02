@@ -30,19 +30,19 @@ public class EmpresaValidator implements Validator {
 		EmpresaCommand command = (EmpresaCommand) target;
 		
 		if(StringUtils.isBlank(command.getNombre())){
-			errors.rejectValue("name","El nombre es obligatorio");
+			errors.rejectValue("nombre","El nombre es obligatorio");
 		}
 		
 		if(StringUtils.isBlank(command.getNombreComercial())){
-			errors.rejectValue("name","El nombre comercial es obligatorio");
+			errors.rejectValue("nombreComercial","El nombre comercial es obligatorio");
 		}
 		
 		if(StringUtils.isBlank(command.getSector())){
-			errors.rejectValue("name","El sector es obligatorio");
+			errors.rejectValue("sector","El sector es obligatorio");
 		}
 		
 		if(StringUtils.isBlank(command.getActividad())){
-			errors.rejectValue("name","La actividad es obligatoria");
+			errors.rejectValue("actividad","La actividad es obligatoria");
 		}
 		
 		if(!BooleanUtils.isTrue(command.isNew())){

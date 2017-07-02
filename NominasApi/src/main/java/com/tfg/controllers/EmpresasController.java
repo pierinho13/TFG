@@ -73,7 +73,7 @@ public class EmpresasController {
 		return mensajeRespuesta;
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value="/nominasApi/empresas/update/{empresaId}")
+	@RequestMapping(method = RequestMethod.PUT, value="/nominasApi/{empresaId}/update")
 	@ResponseBody MensajeRespuesta actualizaEmpresa(@PathVariable Long empresaId,
 			@RequestBody EmpresaCommand empresaCommand,BindingResult result) {
 		
