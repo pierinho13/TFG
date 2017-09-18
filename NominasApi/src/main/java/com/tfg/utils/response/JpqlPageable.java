@@ -12,6 +12,8 @@ public class JpqlPageable implements Serializable{
 	
 	private final Integer DEFAULT_PAGE=1;
 	private final Integer DEFAULT_PAGE_SIZE=50;
+	private final String DEFAULT_SIDX= "id";
+	private final String DEFAULT_SORD= "ASC";
 	
 	private Integer page;
 	private Integer rows;
@@ -22,6 +24,8 @@ public class JpqlPageable implements Serializable{
 		super();
 		this.page=DEFAULT_PAGE;
 		this.rows=DEFAULT_PAGE_SIZE;
+		this.sord = DEFAULT_SORD;
+		this.sidx = DEFAULT_SIDX;
 	}
 	
 	public JpqlPageable(Integer page, Integer rows, String sidx, String sord) {

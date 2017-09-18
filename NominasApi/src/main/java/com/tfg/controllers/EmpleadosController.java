@@ -40,7 +40,7 @@ public class EmpleadosController {
 	private EmpleadoManager empleadoManager;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@RequestMapping(value = "/nominasApi/{empresaId}/empleados/todos", method = RequestMethod.GET)
+	@RequestMapping(value = "/nominasApi/{empresaId}/empleados", method = RequestMethod.GET)
 	public @ResponseBody MensajeRespuesta getListadoEmpleados(@PathVariable Long empresaId,
 			@ModelAttribute FilterEmpleadoCommand filterEmpleadoCommand,@ModelAttribute JpqlPageable jpqlPageable) {
 		
